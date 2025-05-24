@@ -6,6 +6,7 @@
 2. `pip` instalado.
 3. Git para clonar o repositório.
 4. CUDA e cuDNN instalados (se quiser usar GPU).
+5. Baixar a pasta "runs" no OneDrive, depois coloca na pasta yolov7
 
 ---
 
