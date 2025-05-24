@@ -57,7 +57,7 @@ Ou baixe de onde for indicado.
 No terminal, dentro da pasta do projeto, rode:
 
 ```bash
-python detect.py --weights best.pt --img 640 --conf 0.25 --source /caminho/para/imagens
+python detect.py --weights runs/train/exp6/weights/best.pt --img 640 --conf 0.25 --source /caminho/para/imagens
 ```
 ### ⚙️ Parâmetros importantes:
 
@@ -91,7 +91,7 @@ runs/detect/exp2/
 Se quiser salvar as detecções no formato YOLO (`.txt`), adicione a flag `--save-txt`:
 
 ```bash
-python detect.py --weights best.pt --img 640 --conf 0.25 --source /caminho/para/imagens --save-txt
+python detect.py --weights runs/train/exp6/weights/best.pt --img 640 --conf 0.25 --source /caminho/para/imagens --save-txt
 ```
 Os arquivos `.txt` serão salvos em:
 
