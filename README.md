@@ -120,3 +120,41 @@ Agora você já sabe como testar a rede YOLOv7 com suas imagens!
 As detecções estarão salvas para você analisar.
 
 ---
+
+## ✅ Passo a passo para configurar o PyTorch com suporte à GPU (CUDA 12.1)
+
+### 1. Instale a versão correta do PyTorch com CUDA 12.1:
+
+```bash
+pip install torch==2.5.1+cu121 torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu121
+```
+### Isso garante que será baixada a versão com suporte CUDA 12.1, compatível com sua GPU NVIDIA.
+## Importante:
+### Não pule o --extra-index-url → sem ele, o pip baixa a versão CPU-only automaticamente.
+### Pode usar torch==2.5.1+cu121 pois essa versão já funcionou na outra pasta.
+
+### 2. Confirme a instalação:
+
+```bash
+pip show torch
+```
+### O resultado esperado deve mostrar:
+### Version: 2.5.1+cu121
+### Se aparecer cpu ou +cpu, significa que não pegou a versão CUDA → revise o comando de instalação.
+
+### 3. Teste se o PyTorch reconhece a GPU:
+
+```bash
+python
+import torch
+print(torch.cuda.is_available())
+```
+## O retorno esperado:
+### True
+### Se aparecer False → significa que:
+### - O driver NVIDIA pode não estar atualizado.
+### - A instalação não foi feita com suporte a CUDA.
+
+## ✅ Feito isso, seu ambiente estará pronto para usar a GPU com YOLOv7!
+
+
