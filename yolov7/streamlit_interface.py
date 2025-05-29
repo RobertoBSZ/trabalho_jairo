@@ -288,30 +288,7 @@ def main():
                             latest_exp = max(output_dir.glob("exp*"), key=lambda p: int(p.name.replace("exp", "") or 0))
                             result_file = next(latest_exp.glob(f"*{os.path.splitext(uploaded_file.name)[1]}"))
 
-                            if file_type == 'image':
-                                # Extrair e adicionar texto detectado
-                                detected_texts = extract_text_from_labels(result_file)
-                                if detected_texts:
-                                    # Adiciona o overlay com o texto detectado
-                                    result_file = add_text_overlay(result_file, detected_texts)
-                                    
-                                    # Mostra os textos detectados em uma caixa separada
-                                    st.markdown("### Textos Detectados:")
-                                    for text in detected_texts:
-                                        st.markdown(f"""
-                                            <div style='
-                                                background-color: white;
-                                                color: black;
-                                                padding: 10px;
-                                                border-radius: 5px;
-                                                margin: 5px 0;
-                                                display: inline-block;
-                                                font-weight: bold;
-                                            '>
-                                                {text}
-                                            </div>
-                                        """, unsafe_allow_html=True)
-                                
+                            if file_type == 'image':                                
                                 st.image(str(result_file), caption="Resultado da Detecção", use_container_width=True)
                             elif file_type == 'video':
                                 # Converter o vídeo para um formato compatível com o navegador
